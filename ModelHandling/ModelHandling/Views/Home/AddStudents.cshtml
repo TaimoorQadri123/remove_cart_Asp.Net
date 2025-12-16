@@ -1,0 +1,35 @@
+﻿@model ModelHandling.Models.Students
+<h2 class="display-5">Add Students</h2>
+
+
+<form method="post" style="width: 22rem;">
+    <div class="mb-3">
+        <label for="Name" asp-for="Name"> Name</label>
+        <input type="text"  asp-for= "Name"class="form-control" id="Name" placeholder="Enter your Name">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label for="Age" asp-for="Age">Age</label>
+        <input type="number" asp-for="Age"class="form-control" id="Age" placeholder="Enter your age">
+        <span asp-validation-for="Age" class="text-danger"></span>
+
+    </div>
+    <div class="mb-3">
+        <label  asp-for="Email">Email </label>
+        <input type="Email"  asp-for="Email"class="form-control" id="Email" placeholder="name@example.com">
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4">Add</button>
+</form>
+
+
+@if(ViewBag.Message != null)
+{
+    <p class="text-success mt-3 fw-bold">@ViewBag.Message</p>
+}
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial.cshtml" />
+
+}

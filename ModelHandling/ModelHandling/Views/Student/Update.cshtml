@@ -1,0 +1,43 @@
+﻿@model Students
+
+
+<h2 class="display-5">UPDATE STUDENTS</h2>
+<form asp-action="Update">
+
+    <label >Name</label>
+    <input type="text" asp-for="Name"  />
+    <br />
+    <span asp-validation-for="Name" class="text-danger"></span>
+    <br />
+
+    <br />
+
+    <label >Email</label>
+    <input type="email" asp-for="Email" />
+    <br />
+    <span asp-validation-for="Email" class="text-danger"></span>
+    <br />
+
+    <br />
+
+    <label >Age</label>
+    <input type="number" asp-for="Age"/>
+    <br />
+    <span asp-validation-for="Age" class="text-danger"></span>
+    <br />
+
+    <br />
+    <input type="hidden" asp-for="Id" />
+
+    <input class="btn btn-primary" type="submit" value="Update" />
+
+</form>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial.cshtml" />
+
+}
+
+
+

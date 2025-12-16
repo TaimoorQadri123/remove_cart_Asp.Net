@@ -1,0 +1,42 @@
+﻿@model Students 
+
+<h2 class="display-5">CREATE STUDENTS</h2>
+<form asp-action="Create">
+
+    <label asp-for="Name">Name</label>
+    <input type="text" asp-for="Name" value="" />
+    <br />
+    <span asp-validation-for="Name" class="text-danger"></span>
+    <br />
+
+    <br />
+
+    <label asp-for="Email">Email</label>
+    <input type="email" asp-for="Email" value="" />
+    <br />
+    <span asp-validation-for="Email" class="text-danger"></span>
+    <br />
+
+    <br />
+
+    <label asp-for="Age">Age</label>
+    <input type="number" asp-for="Age" value="" />
+    <br />
+    <span asp-validation-for="Age" class="text-danger"></span>
+    <br />
+
+    <br />
+
+    <input  class="btn btn-primary" type="submit" value="Create"/>
+
+</form>
+@if (ViewBag.Message != null)
+{
+    <p class="text-success mt-3 fw-bold">@ViewBag.Message</p>
+}
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial.cshtml" />
+
+}

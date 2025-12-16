@@ -1,0 +1,31 @@
+﻿@model List<Products>
+
+    <h2 class="display-4">All Products</h2>
+<div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="card" style="width: 18rem;">
+                <img src="@item.ImageUrl" class="card-img-top" alt="..." height="200">
+            <div class="card-body">
+                <h5 class="card-title">@item.ProductName</h5>
+                <p class="card-text">@item.Price</p>
+                <p class="card-text">@item.ProductCatDescription</p>
+
+                    <input type="hidden" name="productId" value="@item.Id" />
+                    @if(User.Identity.IsAuthenticated)
+                {
+                    <a class="btn btn-primary" asp-controller="Cart" asp-action="AddToCart" 
+                    asp-route-id="@item.Id" >Add to Cart</a>
+                }
+                else
+                {
+                    <a class="btn btn-warning" asp-area="Identity" asp-page="/Account/Login"
+                    asp-route-id="@item.Id">Login To Buy</a>
+                }
+               
+
+
+            </div>
+        </div>
+        }
+</div>
